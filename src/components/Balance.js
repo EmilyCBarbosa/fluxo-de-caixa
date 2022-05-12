@@ -1,10 +1,16 @@
 import React from 'react';
+import { formatToBRL } from 'brazilian-values';
 
-export default function Balance() {
+export default function Balance(props) {
+  const { expenses } = props;
+
+  const total = expenses
+    .map((expenses) => expenses.value)
+    .reduce((acc, item) => (acc += item), 0);
   return (
     <div>
-      <p>Seu saldo</p>
-      <p>R$ 0,00</p>
+      <p className="balance-label">Seu saldo</p>
+      <p className="balance-value">{formatToBRL(total)}</p>
     </div>
   );
 }

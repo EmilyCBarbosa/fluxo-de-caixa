@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import './style.css';
 import Header from './components/Header';
+import Balance from './components/Balance';
 
 export default function App() {
-  const [expanses, setExpanses] = useState([
+  const [expenses, setExpenses] = useState([
     {
       id: 1,
       description: 'Salário',
@@ -17,8 +18,11 @@ export default function App() {
   ]);
 
   return (
-    <div>
-      <Header /> <div className="container">a</div>
-    </div>
+    <main>
+      <Header />
+      <div className="container">
+        <Balance expenses={expenses} />
+      </div>
+    </main>
   );
 }
